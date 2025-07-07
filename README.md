@@ -46,8 +46,8 @@ A full-stack food delivery platform built with React and Spring Boot, featuring 
 
 ## 🚀 Deployment
 
-- **User Portal:** [🔗 https://online-food-delivery-tfk5.vercel.app/login](https://online-food-delivery-tfk5.vercel.app/login)  
-- **Admin Dashboard:** [🔗 https://online-food-delivery-henna-eight.vercel.app/login](https://online-food-delivery-henna-eight.vercel.app/login)
+- **User Portal:** [🔗 https://online-food-delivery-tfk5.vercel.app/login](https://online-food-delivery-tfk5.vercel.app)  
+- **Admin Dashboard:** [🔗 https://online-food-delivery-henna-eight.vercel.app/login](https://online-food-delivery-henna-eight.vercel.app)
 
 ---
 
