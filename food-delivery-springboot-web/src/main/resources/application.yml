@@ -1,0 +1,50 @@
+
+server:
+  port: 8090
+spring:
+  application:
+    name: food-delivery-springboot-web
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+aws:
+  access:
+   key: ${AWS_ACCESS_KEY}
+  secret:
+   key: ${AWS_SECRET_KEY}
+  region: ap-south-1
+  bucket-name: food-delivery-pitabash
+
+jwt:
+  secretKey: ${JWT_SECRET_KEY}
+  expirationTime: ${JWT_EXPIRATION_TIME}
+
+razorPay:
+  key: ${RAZORPAY_KEY}
+  secretKey: ${RAZORPAY_SECRET_KEY}
+
+frontEnd:
+  user: ${FRONT-END-USER}
+  admin: ${FRONT-END-ADMIN}
+
+email:
+  user: ${SEND_TO_EMAIL}
+
+
