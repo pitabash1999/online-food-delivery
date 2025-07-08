@@ -168,9 +168,13 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <button className="btn btn-outline btn-info">Cart (8)</button>
+              <button className="btn btn-outline btn-info">
+                {cartItems.length} Items
+              </button>
 
-              <a className="btn btn-outline btn-error">Logout</a>
+              <a className="btn btn-outline btn-error" onClick={state.logout}>
+                Logout
+              </a>
             </>
           )}
         </div>
