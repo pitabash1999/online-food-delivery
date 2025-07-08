@@ -1,15 +1,9 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://food-delivery-backend-latest.onrender.com"
-    }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    {
-      "src": "/.*",
-      "dest": "/index.html"
+      "source": "/.*",
+      "destination": "/index.html"
     }
   ]
+  
 }
