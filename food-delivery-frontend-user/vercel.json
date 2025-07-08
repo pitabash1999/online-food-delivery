@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://online-food-delivery-tfk5-git-main-pitabash-beheras-projects.vercel.app"
+      "destination": "https://food-delivery-backend-latest.onrender.com"
     }
   ],
   "routes": [
