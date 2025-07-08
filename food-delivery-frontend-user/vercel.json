@@ -1,8 +1,15 @@
 {
-  "rewrite": [
+  "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "https://online-food-delivery-tfk5-git-main-pitabash-beheras-projects.vercel.app"
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ]
 }
