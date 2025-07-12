@@ -170,7 +170,7 @@ const Navbar = () => {
             <>
               <button
                 className="btn btn-outline btn-info"
-                onClick={() => navigate("/orders")}
+                onClick={() => navigate("/cart")}
               >
                 {cartItems.length} Items
               </button>
