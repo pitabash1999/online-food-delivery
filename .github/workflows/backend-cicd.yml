@@ -69,6 +69,6 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
-            docker stop food-delivery-backend:latest || true
-            docker rm food-delivery-backend:latest || true
-            docker run -d --name food-delivery-backend:latest -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
+            docker stop food-delivery || true
+            docker rm food-delivery || true
+            docker run -d --name food-delivery -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
