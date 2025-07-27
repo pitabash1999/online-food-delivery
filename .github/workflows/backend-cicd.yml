@@ -71,4 +71,17 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
             docker stop food-delivery || true
             docker rm food-delivery || true
-            docker run -d --name food-delivery -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
+            docker run -d --name food-delivery -p 8090:8090 \
+              -e MONGODB_URI="${{ secrets.MONGODB_URI }}" \
+              -e AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY }}" \
+              -e AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" \
+              -e JWT_SECRET_KEY="${{ secrets.JWT_SECRET_KEY }}" \
+              -e JWT_EXPIRATION_TIME="${{ secrets.JWT_EXPIRATION_TIME }}" \
+              -e RAZORPAY_KEY="${{ secrets.RAZORPAY_KEY }}" \
+              -e RAZORPAY_SECRET_KEY="${{ secrets.RAZORPAY_SECRET_KEY }}" \
+              -e EMAIL_USERNAME="${{ secrets.EMAIL_USERNAME }}" \
+              -e EMAIL_PASSWORD="${{ secrets.EMAIL_PASSWORD }}" \
+              -e FRONT_END_USER="${{ secrets.FRONT_END_USER }}" \
+              -e FRONT_END_ADMIN="${{ secrets.FRONT_END_ADMIN }}" \
+              -e SEND_TO_EMAIL="${{ secrets.SEND_TO_EMAIL }}" \
+              ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
