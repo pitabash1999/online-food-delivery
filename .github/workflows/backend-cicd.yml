@@ -71,7 +71,7 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
             docker stop project-app || true
             docker rm project-app || true
-            docker run -d --name project-app -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/project-app
 
       - name: Deploy to EC2 Instance 2
         uses: appleboy/ssh-action@v1.0.3
@@ -83,4 +83,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
             docker stop project-app || true
             docker rm project-app || true
-            docker run -d --name project-app -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/project-app
