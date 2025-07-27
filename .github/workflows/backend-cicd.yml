@@ -68,10 +68,10 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
-            docker stop project-app || true
-            docker rm project-app || true
-            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker pull ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
+            docker stop food-delivery-backend:latest || true
+            docker rm food-delivery-backend:latest || true
+            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
 
       - name: Deploy to EC2 Instance 2
         uses: appleboy/ssh-action@v1.0.3
@@ -80,7 +80,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
-            docker stop project-app || true
-            docker rm project-app || true
-            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker pull ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
+            docker stop food-delivery-backend:latest || true
+            docker rm food-delivery-backend:latest || true
+            docker run -d --name project-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest
