@@ -54,8 +54,33 @@ jobs:
             SEND_TO_EMAIL=${{ secrets.SEND_TO_EMAIL }}
   deploy:
     needs: docker
+    name: deploy to aws
     runs-on: ubuntu-latest
+    # steps:
+    #   - name: Trigger Deploy on Render
+    #     run: |
+    #       curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?imgUrl=docker.io/${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest"
     steps:
-      - name: Trigger Deploy on Render
-        run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?imgUrl=docker.io/${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest"
+      - name: Deploy to EC2 Instance 1
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST_1 }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker stop project-app || true
+            docker rm project-app || true
+            docker run -d --name project-app -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project-app
+
+      - name: Deploy to EC2 Instance 2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST_2 }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/project-app
+            docker stop project-app || true
+            docker rm project-app || true
+            docker run -d --name project-app -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project-app
