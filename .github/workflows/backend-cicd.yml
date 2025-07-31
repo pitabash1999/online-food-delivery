@@ -56,11 +56,10 @@ jobs:
     needs: docker
     name: deploy to aws
     runs-on: ubuntu-latest  
-    # steps:
-    #   - name: Trigger Deploy on Render
-    #     run: |
-    #       curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?imgUrl=docker.io/${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest"
     steps:
+      - name: Trigger Deploy on Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}?imgUrl=docker.io/${{ secrets.DOCKER_USERNAME }}/food-delivery-backend:latest"
       - name: Deploy to EC2 Instance 1
         uses: appleboy/ssh-action@v1.0.3
         with:
